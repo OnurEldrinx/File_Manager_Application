@@ -24,7 +24,7 @@ public class Main {
 
 
         String filePath = null;
-        File file = null;
+        File file;
         TxtReader txtReader = null;
 
         Scanner scanner = new Scanner(System.in);
@@ -107,14 +107,9 @@ public class Main {
                             System.out.print("\nEnter destination path: ");
                             String d = scanner.nextLine();
 
-                            Path original = Paths.get(filePath);
-                            Path copied = Paths.get(d);
-                            Files.copy(original, copied, StandardCopyOption.REPLACE_EXISTING);
-
-                            System.out.println("*********************************************************************************************");
-                            System.out.println("Successfully Copied");
-                            System.out.println("*********************************************************************************************");
-
+                            if (txtReader != null) {
+                                txtReader.CopyToDirectory(d);
+                            }
 
 
                         }
@@ -133,8 +128,6 @@ public class Main {
 
                 System.out.println(redColorCode + e.getMessage() + resetColorCode);
 
-            } catch (IOException e) {
-                e.printStackTrace();
             }
 
 

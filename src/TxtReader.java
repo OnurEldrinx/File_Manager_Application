@@ -1,5 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -125,7 +130,45 @@ public class TxtReader {
         System.out.println("Line Count : " + fileData.size());
         System.out.println("*********************************************************************************************");
 
-    };
+    }
+
+    public void CopyToDirectory(String destination){
+
+
+        if(!destination.contains(".txt")){
+
+            destination += "\\copiedFile.txt";
+
+        }
+
+        try {
+
+            File copy = new File(destination);
+
+            if(copy.getParentFile().mkdirs()){
+
+                copy.createNewFile();
+
+            }
+
+            Path original = Paths.get(file.getPath());
+            Path copied = Paths.get(copy.getPath());
+
+            Files.copy(original, copied, StandardCopyOption.REPLACE_EXISTING);
+
+            System.out.println("*********************************************************************************************");
+            System.out.println("Successfully Copied");
+            System.out.println("*********************************************************************************************");
+
+        } catch (IOException e) {
+            System.out.println(redColorCode + e.getMessage() + resetColorCode);
+        }
+
+
+
+
+    }
+
 
     public File getFile() {
         return file;
