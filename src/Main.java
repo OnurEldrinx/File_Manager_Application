@@ -68,7 +68,7 @@ public class Main {
 
                     case 2:
 
-                        if(filePath == null){
+                        if(filePath == null || !filePath.contains(".txt")){
 
                             throw new NoFileSelectedException("No file has been selected!");
 
@@ -83,7 +83,7 @@ public class Main {
                         break;
                     case 3:
 
-                        if(filePath == null){
+                        if(filePath == null || !filePath.contains(".txt")){
 
                             throw new NoFileSelectedException("No file has been selected!");
 
@@ -98,7 +98,7 @@ public class Main {
                         break;
                     case 4:
 
-                        if(filePath == null){
+                        if(filePath == null || !filePath.contains(".txt")){
 
                             throw new NoFileSelectedException("No file has been selected!");
 

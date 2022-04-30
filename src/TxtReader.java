@@ -137,7 +137,7 @@ public class TxtReader {
 
         if(!destination.contains(".txt")){
 
-            destination += "\\copiedFile.txt";
+            destination += "\\copied_" + file.getName();
 
         }
 
